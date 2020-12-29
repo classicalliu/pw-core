@@ -45,7 +45,7 @@ export class SimpleSUDTBuilder extends Builder {
     let senderInputCKBSum = new Amount('0');
     let minSenderOccupiedCKBSum = new Amount('0');
 
-    const receiverAmount = new Amount('283');
+    const receiverAmount = new Amount('400');
     const receiverOutputCell = new Cell(
       receiverAmount,
       this.address.toLockScript(),
