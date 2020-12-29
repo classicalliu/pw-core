@@ -16,7 +16,7 @@ export interface Message {
 export abstract class Signer {
   protected constructor(private readonly hasher: Hasher) {}
 
-  protected abstract async signMessages(messages: Message[]): Promise<string[]>;
+  protected abstract signMessages(messages: Message[]): Promise<string[]>;
 
   async sign(tx: Transaction): Promise<Transaction> {
     const messages = this.toMessages(tx);

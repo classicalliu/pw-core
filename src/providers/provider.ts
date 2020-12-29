@@ -20,9 +20,9 @@ export abstract class Provider {
     this._address = value;
   }
 
-  abstract async init(): Promise<Provider>;
+  abstract init(): Promise<Provider>;
 
-  abstract async sign(message: string): Promise<string>;
+  abstract sign(message: string): Promise<string>;
 
-  abstract async close();
+  abstract close();
 }

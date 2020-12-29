@@ -6,8 +6,8 @@ export interface CollectorOptions {
 }
 export abstract class Collector {
   protected constructor() {}
-  abstract async getBalance(address: Address): Promise<Amount>;
-  abstract async collect(
+  abstract getBalance(address: Address): Promise<Amount>;
+  abstract collect(
     address: Address,
     options?: CollectorOptions
   ): Promise<Cell[]>;
