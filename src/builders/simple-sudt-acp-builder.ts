@@ -10,6 +10,7 @@ import {
 } from '../models';
 import PWCore from '..';
 import { SUDTCollector } from '../collectors/sudt-collector';
+import { Collector } from '../collectors';
 
 export class SimpleSUDTACPBuilder extends Builder {
   constructor(
@@ -173,7 +174,7 @@ export class SimpleSUDTACPBuilder extends Builder {
     return tx;
   }
 
-  getCollector() {
+  getCollector(): Collector | SUDTCollector {
     return this.collector;
   }
 }

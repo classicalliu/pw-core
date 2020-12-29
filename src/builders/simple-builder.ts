@@ -10,6 +10,7 @@ import {
 } from '../models';
 import PWCore from '..';
 import { SimpleACPBuilder } from './simple-acp-builder';
+import { SUDTCollector } from '../collectors';
 
 export class SimpleBuilder extends Builder {
   simpleACPBuilder: Builder;
@@ -79,7 +80,7 @@ export class SimpleBuilder extends Builder {
     return this.build(this.fee);
   }
 
-  getCollector() {
+  getCollector(): Collector | SUDTCollector {
     return this.collector;
   }
 }

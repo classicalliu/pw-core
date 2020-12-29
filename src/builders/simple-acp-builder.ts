@@ -9,6 +9,7 @@ import {
   Transaction,
 } from '../models';
 import PWCore from '..';
+import { SUDTCollector } from '../collectors';
 
 export class SimpleACPBuilder extends Builder {
   receiverInputCell: Cell;
@@ -92,7 +93,7 @@ export class SimpleACPBuilder extends Builder {
     return this.buildSenderCells(this.fee);
   }
 
-  getCollector() {
+  getCollector(): Collector | SUDTCollector {
     return this.collector;
   }
 }

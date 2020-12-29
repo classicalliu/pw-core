@@ -10,6 +10,7 @@ import {
 } from '../models';
 import PWCore from '..';
 import { SUDTCollector } from '../collectors/sudt-collector';
+import { Collector } from '../collectors';
 
 export class SimpleSUDTBuilder extends Builder {
   fee: Amount;
@@ -220,7 +221,7 @@ export class SimpleSUDTBuilder extends Builder {
     return tx;
   }
 
-  getCollector() {
+  getCollector(): Collector | SUDTCollector {
     return this.collector;
   }
 }
