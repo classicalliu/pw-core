@@ -32,7 +32,8 @@
     "reset": "git clean -dfx && git reset --hard && npm i",
     "clean": "trash build test",
     "prepare-release": "run-s reset test cov:check doc:html version doc:publish",
-    "prepare": "yarn run build"
+    "prepare": "yarn run build",
+    "prepack": "yarn run build"
   },
   "scripts-info": {
     "info": "Display information about the package scripts",
