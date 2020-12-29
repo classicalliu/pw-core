@@ -126,14 +126,14 @@ export class SimpleSUDTBuilder extends Builder {
    * Fetch pure CKB cells to fullfill the need CKB amount
    * @param ckbAmount  needed CKB amount
    */
-  async buildCKBCells(ckbAmount): Promise<Transaction> {
+  async buildCKBCells(ckbAmount: Amount): Promise<Transaction> {
     // fetch pure ckb cells to pay the fee.
     const neededAmount = ckbAmount.add(Builder.MIN_CHANGE).add(this.fee);
     let inputSum = new Amount('0');
 
     const unspentCKBCells = await this.collector.collect(
       PWCore.provider.address,
-      neededAmount
+      { neededAmount }
     );
 
     if (!unspentCKBCells || unspentCKBCells.length === 0) {
@@ -189,7 +189,7 @@ export class SimpleSUDTBuilder extends Builder {
    * subtract specified ckb amount from sender's outputs
    * @param ckbAmount
    */
-  private extractCKBFromOutputs(ckbAmount) {
+  private extractCKBFromOutputs(ckbAmount: Amount) {
     for (const cell of this.outputCells.slice(1)) {
       if (ckbAmount.gt(cell.availableFee())) {
         ckbAmount = ckbAmount.sub(cell.availableFee());
