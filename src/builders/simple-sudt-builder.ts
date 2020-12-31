@@ -104,8 +104,8 @@ export class SimpleSUDTBuilder extends Builder {
     if (senderInputSUDTSum.lt(this.amount)) {
       throw new Error(
         `input sudt amount not enough, need ${this.amount.toString(
-          AmountUnit.ckb
-        )}, got ${senderInputSUDTSum.toString(AmountUnit.ckb)}`
+          AmountUnit.shannon
+        )}, got ${senderInputSUDTSum.toString(AmountUnit.shannon)}`
       );
     }
 
